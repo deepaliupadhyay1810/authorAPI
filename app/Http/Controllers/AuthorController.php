@@ -26,18 +26,18 @@ class AuthorController extends Controller
         return response()->json($author, 201);
     }
 
-    /*Update Data not working*/
-    public function update($id, Request $request)
-    {
-        $author = Author::findOrFail($id);
-        $author->update($request->all());
-        return response()->json($author, 200);
+    /*Update Data*/
+  	public function update($id, Request $request)
+    {	
+    	$author = Author::findOrFail($id);
+    	$author->update($request->all());
+ 
+    	return response()->json($author, 200);   	
     }
 
     /*Show single data*/
     public function showone($id)
     {
-
         //$author = Author::findOrFail($id); //This will show own message if data not founded
         $author = Author::find($id); //This statement will allow to show custom message
         if($author){
