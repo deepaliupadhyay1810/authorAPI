@@ -22,8 +22,13 @@ class AuthorController extends Controller
     /*Create Data*/
 	public function create(Request $request)
     {
-        $author = Author::create($request->all());
-        return response()->json($author, 201);
+    	if(!empty($request->all())){
+    		$author = Author::create($request->all());
+    		return response()->json($author, 201);	
+    	}else{
+    		return response('Something went wrong!');
+    	}
+        
     }
 
     /*Update Data*/
